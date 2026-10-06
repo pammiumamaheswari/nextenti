@@ -1,0 +1,27 @@
+{
+  "name": "medvance-ai-platform",
+  "version": "1.0.0",
+  "description": "MedVance AI - Production Full-Stack Healthcare Career & Talent Ecosystem",
+  "private": true,
+  "workspaces": [
+    "frontend",
+    "backend",
+    "shared"
+  ],
+  "scripts": {
+    "dev:frontend": "npm run dev --prefix frontend",
+    "dev:backend": "npm run dev --prefix backend",
+    "build:frontend": "npm run build --prefix frontend",
+    "build:backend": "npm run build --prefix backend",
+    "seed": "npm run seed --prefix backend",
+    "dev": "npm run dev:frontend"
+  },
+  "keywords": [
+    "healthcare",
+    "recruitment",
+    "medical-jobs",
+    "ai-matching",
+    "talent-marketplace",
+    "credential-verification"
+  ]
+}
