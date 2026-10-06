@@ -197,7 +197,7 @@ export const ManageJobsPage: React.FC = () => {
 
       <div className="space-y-4">
         {/* Jobs list */}
-        {INITIAL_CANDIDATES.slice(0, 3).map((_, idx) => (
+        {[0, 1, 2].map((idx) => (
           <div key={idx} className="bg-white p-6 rounded-3xl border border-slate-200 shadow-subtle flex items-center justify-between">
             <div>
               <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-emerald-50 text-emerald-800 border border-emerald-200">

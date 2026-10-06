@@ -20,7 +20,7 @@ export const ContactUsPage: React.FC = () => {
     addNotification({
       title: 'Message Received!',
       message: 'Thank you for reaching out. A MedVance healthcare advisor will contact you shortly.',
-      type: 'NOTIFICATION'
+      type: 'MESSAGE'
     });
   };
 

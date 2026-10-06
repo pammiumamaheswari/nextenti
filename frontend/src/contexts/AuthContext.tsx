@@ -10,6 +10,7 @@ export interface AuthUser {
   phone: string;
   role: UserRole;
   avatar?: string;
+  headline?: string;
   profession?: string;
   organizationName?: string;
   specialization?: string;
@@ -24,6 +25,7 @@ interface AuthContextType {
   login: (email: string, role?: UserRole) => Promise<void>;
   register: (data: any) => Promise<void>;
   logout: () => void;
+  switchRole: (role: UserRole | string) => void;
   switchRolePersona: (roleKey: 'doctor' | 'recruiter' | 'admin' | 'nurse') => void;
 }
 
@@ -35,6 +37,7 @@ const DEMO_PERSONAS: Record<string, AuthUser> = {
     phone: '+91 94451 22345',
     role: 'PROFESSIONAL',
     avatar: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=200&auto=format&fit=crop&q=80',
+    headline: 'Senior Interventional Cardiologist • MD, DM Cardiology',
     profession: 'Doctor',
     specialization: 'Cardiology',
     verificationStatus: 'VERIFIED'
@@ -150,6 +153,18 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     }
   };
 
+  const switchRole = (role: UserRole | string) => {
+    if (role === 'PROFESSIONAL' || role === 'doctor') {
+      switchRolePersona('doctor');
+    } else if (role === 'ORGANIZATION_ADMIN' || role === 'RECRUITER' || role === 'recruiter') {
+      switchRolePersona('recruiter');
+    } else if (role === 'SUPER_ADMIN' || role === 'admin') {
+      switchRolePersona('admin');
+    } else if (role === 'nurse') {
+      switchRolePersona('nurse');
+    }
+  };
+
   return (
     <AuthContext.Provider
       value={{
@@ -160,6 +175,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         login,
         register,
         logout,
+        switchRole,
         switchRolePersona
       }}
     >
