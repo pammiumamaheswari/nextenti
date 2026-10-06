@@ -1,15 +1,15 @@
 # Dependencies
-node_modules
-*/node_modules
+node_modules/
+**/node_modules/
 .pnp
 .pnp.js
 
 # Production build outputs
-dist
-*/dist
-dist-ssr
-build
-*/build
+dist/
+**/dist/
+dist-ssr/
+build/
+**/build/
 
 # Logs
 npm-debug.log*
@@ -23,7 +23,7 @@ pnpm-debug.log*
 .env.*.local
 
 # Editor & OS files
-.vscode
-.idea
+.vscode/
+.idea/
 .DS_Store
 Thumbs.db
